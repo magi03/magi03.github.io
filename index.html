@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шарена Премяна | Ръчно изработени кукли</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-cream': '#fdfbf7',     
+                        'brand-red': '#b93c3c',    
+                        'brand-brown': '#5d4037',  
+                        'brand-accent': '#e6d5c3', 
+                    },
+                    fontFamily: {
+                        sans: ['Comfortaa', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        .no-scroll { overflow: hidden; }
+        .doll-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .doll-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-bg-cream text-brand-brown font-serif antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- NAVIGATION -->
+    <nav class="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-sm border-b border-brand-accent/30 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <!-- Logo Image -->
+                    <img src="image_0c25c6.jpg" onerror="this.style.display='none'" alt="Logo" class="h-12 w-auto object-contain mr-3 rounded-md shadow-sm"> 
+                    <span class="font-sans font-bold text-xl tracking-tighter text-brand-red hidden sm:block">ШАРЕНА ПРЕМЯНА</span>
+                    <span class="font-sans font-bold text-xl tracking-tighter text-brand-red sm:hidden">ШП</span>
+                </div>
+                
+                <div class="flex space-x-4 sm:space-x-8 items-center">
+                    <a href="#gallery" class="font-sans font-bold hover:text-brand-red transition text-sm sm:text-base">Кукли</a>
+                    <a href="#order" class="px-4 sm:px-5 py-2 bg-brand-red text-white font-sans font-bold rounded-full shadow hover:bg-red-800 transition transform hover:scale-105 text-sm sm:text-base">
+                        Поръчай
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative pt-12 pb-16 lg:pt-24 lg:pb-28">
+        <div class="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl tracking-tight font-extrabold text-brand-brown sm:text-5xl md:text-6xl mb-6">
+                <span class="block font-sans text-brand-red">Добре дошли</span>
+                <span class="block text-2xl sm:text-4xl mt-2">в света на традициите</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-gray-600 italic">
+                "Добре дошли в сайта на шарена премяна. Време за изработване на куклите около 7 дни."
+            </p>
+            <div class="mt-10">
+                <i data-lucide="heart-handshake" class="w-10 h-10 sm:w-12 sm:h-12 mx-auto text-brand-red/50 mb-4"></i>
+                <div class="inline-flex items-center justify-center px-4 py-1 border border-brand-accent rounded-full bg-white text-sm font-sans text-gray-500">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                    Приемаме поръчки
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- GALLERY SECTION -->
+    <main id="gallery" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-sans font-bold text-brand-brown">Нашите Кукли</h2>
+            <div class="w-24 h-1 bg-brand-red mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Javascript will insert dolls here -->
+        </div>
+    </main>
+
+    <!-- ORDER SECTION -->
+    <section id="order" class="bg-brand-brown text-brand-accent py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-sans font-bold text-white mb-6">Как да поръчате?</h2>
+            <p class="text-lg mb-8 text-white/90">
+                Харесахте си кукла? Можете да направите своята поръчка лесно, като попълните формата ни. 
+                Ние ще се свържем с вас за потвърждение.
+            </p>
+            
+            <a href="https://docs.google.com/forms" target="_blank" class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-sans font-bold rounded-full shadow-lg text-brand-brown bg-white hover:bg-gray-100 transition transform hover:-translate-y-1">
+                <i data-lucide="clipboard-list" class="mr-2 w-5 h-5"></i>
+                Попълни Формата за Поръчка
+            </a>
+            
+            <p class="mt-6 text-sm opacity-60 font-sans">Време за изработка: ~7 работни дни</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bg-cream border-t border-brand-accent/50 py-8">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm font-sans">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                &copy; 2025 Шарена Премяна. Всички права запазени.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-brand-red transition">Instagram</a>
+                <a href="#" class="hover:text-brand-red transition">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="product-modal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity backdrop-blur-sm" onclick="closeModal()"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
+                    
+                    <div class="absolute top-0 right-0 pt-4 pr-4 z-10">
+                        <button type="button" class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none" onclick="closeModal()">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="bg-gray-100 h-64 md:h-full relative">
+                            <img id="modal-image" src="" alt="Doll Detail" class="absolute inset-0 w-full h-full object-cover">
+                        </div>
+                        
+                        <div class="px-6 py-8 md:p-10 flex flex-col justify-center">
+                            <h3 class="text-2xl font-sans font-bold leading-6 text-gray-900 mb-2" id="modal-title"></h3>
+                            <p class="text-brand-red font-bold text-xl mb-4" id="modal-price"></p>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-500 leading-relaxed" id="modal-description"></p>
+                            </div>
+                            <div class="mt-8">
+                                <a href="#order" onclick="closeModal()" class="w-full inline-flex justify-center items-center rounded-md bg-brand-brown px-4 py-3 text-sm font-bold text-white shadow-sm hover:bg-brand-red transition">
+                                    Поръчай тази кукла
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const products = [
+            {
+                id: 1,
+                title: "Кукла с шопска носия",
+                price: "45.00 лв.",
+                // Replace this link with your local file name if you have one, e.g., "doll1.jpg"
+                image: "https://images.unsplash.com/photo-1589791169539-900332392234?auto=format&fit=crop&q=80&w=800", 
+                shortDesc: "Ръчно изработена с автентични мотиви.",
+                fullDesc: "Тази прекрасна кукла е облечена в традиционна шопска носия. Изработена е от памук и вълна, с внимание към всеки детайл на шевиците. Височина: 30см. Подходяща за подарък или колекция."
+            },
+            {
+                id: 2,
+                title: "Кукла с тракийска носия",
+                price: "50.00 лв.",
+                image: "https://images.unsplash.com/photo-1601236882143-89e65054424b?auto=format&fit=crop&q=80&w=800",
+                shortDesc: "Богата орнаментика и пъстри цветове.",
+                fullDesc: "Тракийската носия се отличава с богати бродерии. Куклата е изработена с любов и спазване на традициите. Включва характерните за региона украшения за глава."
+            },
+            {
+                id: 3,
+                title: "Кукла с родопска носия",
+                price: "48.00 лв.",
+                image: "https://images.unsplash.com/photo-1515488042361-25f4682ee22e?auto=format&fit=crop&q=80&w=800",
+                shortDesc: "Красотата на планината в една кукла.",
+                fullDesc: "Вдъхновена от Родопите, тази кукла носи усещане за уют и традиция. Използвани са естествени материали и традиционна техника на шиене."
+            },
+            {
+                id: 4,
+                title: "Кукла Лазарка",
+                price: "55.00 лв.",
+                image: "https://images.unsplash.com/photo-1502005229766-5285579172f7?auto=format&fit=crop&q=80&w=800",
+                shortDesc: "Празнична носия с венец.",
+                fullDesc: "Специална празнична кукла, облечена като Лазарка с красив венец от цветя на главата. Символ на пролетта и здравето."
+            }
+        ];
+
+        const grid = document.getElementById('product-grid');
+
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'doll-card bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 cursor-pointer flex flex-col h-full';
+            card.onclick = () => openModal(product);
+
+            card.innerHTML = `
+                <div class="h-64 overflow-hidden relative group shrink-0">
+                    <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                        <span class="opacity-0 group-hover:opacity-100 bg-white text-brand-brown px-4 py-2 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                            Виж повече
+                        </span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold font-sans text-gray-900 leading-tight">${product.title}</h3>
+                        <span class="text-brand-red font-bold text-lg whitespace-nowrap ml-2">${product.price}</span>
+                    </div>
+                    <p class="text-gray-500 text-sm italic mb-4 flex-grow">${product.shortDesc}</p>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        const modal = document.getElementById('product-modal');
+        const body = document.body;
+
+        function openModal(product) {
+            document.getElementById('modal-title').innerText = product.title;
+            document.getElementById('modal-price').innerText = product.price;
+            document.getElementById('modal-description').innerText = product.fullDesc;
+            document.getElementById('modal-image').src = product.image;
+
+            modal.classList.remove('hidden');
+            body.classList.add('no-scroll');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            body.classList.remove('no-scroll');
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
