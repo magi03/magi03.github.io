@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Шарена Премяна | Ръчно изработени кукли</title>
     
-    <!-- THIS IS THE LINE THAT ADDS THE ICON TO THE TAB -->
+    <!-- Favicon -->
     <link rel="icon" href="image_0c25c6.jpg" type="image/jpeg">
 
     <title>Шарена Премяна | Ръчно изработени кукли</title>
@@ -40,61 +39,20 @@
     </script>
 
     <style>
-        /* Fade in animation for page transitions */
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* Fade in animation */
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #9e2a2b;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .nav-link.active::after {
-            width: 100%;
-        }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -2px; left: 0; background-color: #9e2a2b; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link.active::after { width: 100%; }
 
-        .doll-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .doll-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
-        }
+        .doll-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .doll-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15); }
 
-        /* Elegant text container */
-        .elegant-quote {
-            position: relative;
-            border-top: 1px solid #d4a373;
-            border-bottom: 1px solid #d4a373;
-            padding: 2rem 0;
-        }
-        .elegant-quote::before {
-            content: '❦';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #f9f7f2; /* matches bg */
-            padding: 0 15px;
-            color: #d4a373;
-            font-size: 1.5rem;
-        }
+        .elegant-quote { position: relative; border-top: 1px solid #d4a373; border-bottom: 1px solid #d4a373; padding: 2rem 0; }
+        .elegant-quote::before { content: '❦'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #f9f7f2; padding: 0 15px; color: #d4a373; font-size: 1.5rem; }
     </style>
 </head>
 <body class="bg-bg-cream text-brand-brown font-sans antialiased flex flex-col min-h-screen">
@@ -102,42 +60,53 @@
     <!-- NAVIGATION -->
     <nav class="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-brand-gold/20 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
+            <div class="flex justify-between items-center h-20 md:h-24">
                 
                 <!-- LEFT: Logo & Name -->
-                <a href="#home" class="flex-shrink-0 flex items-center cursor-pointer group">
+                <a href="#home" class="flex-shrink-0 flex items-center cursor-pointer group" onclick="closeMobileMenu()">
                     <div class="relative">
-                        <!-- Logo with fallback to an icon if image fails -->
-                        <img src="image_0c25c6.jpg" onerror="this.style.display='none'; document.getElementById('fallback-logo').classList.remove('hidden');" alt="Logo" class="h-16 w-auto object-contain mr-4 transition transform group-hover:scale-105">
-                        <div id="fallback-logo" class="hidden h-12 w-12 bg-brand-red/10 rounded-full flex items-center justify-center mr-4 text-brand-red">
-                             <i data-lucide="flower-2" class="w-8 h-8"></i>
+                        <img src="image_0c25c6.jpg" onerror="this.style.display='none'; document.getElementById('fallback-logo').classList.remove('hidden');" alt="Лого" class="h-12 md:h-16 w-auto object-contain mr-3 md:mr-4 transition transform group-hover:scale-105">
+                        <div id="fallback-logo" class="hidden h-10 w-10 md:h-12 md:w-12 bg-brand-red/10 rounded-full flex items-center justify-center mr-4 text-brand-red">
+                             <i data-lucide="flower-2" class="w-6 h-6 md:w-8 md:h-8"></i>
                         </div>
                     </div>
                     <div class="flex flex-col justify-center">
-                        <span class="font-serif font-bold text-2xl tracking-tight text-brand-red uppercase leading-none">Шарена</span>
-                        <span class="font-serif text-lg tracking-widest text-brand-brown uppercase leading-none mt-1">Премяна</span>
+                        <span class="font-serif font-bold text-xl md:text-2xl tracking-tight text-brand-red uppercase leading-none">Шарена</span>
+                        <span class="font-serif text-sm md:text-lg tracking-widest text-brand-brown uppercase leading-none mt-1">Премяна</span>
                     </div>
                 </a>
                 
-                <!-- RIGHT: Menu Items -->
+                <!-- DESKTOP MENU -->
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#home" class="nav-link font-sans font-medium text-gray-700 hover:text-brand-red transition uppercase tracking-wider text-sm">Начало</a>
                     <a href="#about" class="nav-link font-sans font-medium text-gray-700 hover:text-brand-red transition uppercase tracking-wider text-sm">За мен</a>
                     <a href="#gallery" class="nav-link font-sans font-medium text-gray-700 hover:text-brand-red transition uppercase tracking-wider text-sm">Кукли</a>
                     <a href="#contacts" class="nav-link font-sans font-medium text-gray-700 hover:text-brand-red transition uppercase tracking-wider text-sm">Контакти</a>
-                    
-                    <!-- Direct link to Google Form since Order section is removed from Contacts -->
                     <a href="https://forms.gle/UuWF2rPeydeK2qTQ8" target="_blank" class="px-6 py-3 bg-brand-red text-white font-sans font-bold text-sm rounded-sm shadow-md hover:bg-brand-brown transition duration-300 uppercase tracking-wider flex items-center gap-2">
                         <span>Поръчай</span>
                         <i data-lucide="external-link" class="w-4 h-4"></i>
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex space-x-4 items-center">
-                     <a href="#gallery" class="text-gray-700 font-bold text-sm uppercase">Кукли</a>
-                     <a href="https://docs.google.com/forms" target="_blank" class="text-brand-red font-bold text-sm uppercase border border-brand-red px-3 py-1 rounded-sm">Поръчай</a>
+                <!-- MOBILE MENU BUTTON (The Hamburger Icon) -->
+                <div class="md:hidden flex items-center">
+                     <button onclick="toggleMobileMenu()" class="text-brand-brown hover:text-brand-red p-2 focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                     </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- MOBILE DROPDOWN LIST -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-brand-gold/20 shadow-lg">
+            <div class="flex flex-col px-4 py-6 space-y-4">
+                <a href="#home" onclick="closeMobileMenu()" class="text-lg font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-2">Начало</a>
+                <a href="#about" onclick="closeMobileMenu()" class="text-lg font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-2">За мен</a>
+                <a href="#gallery" onclick="closeMobileMenu()" class="text-lg font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-2">Кукли</a>
+                <a href="#contacts" onclick="closeMobileMenu()" class="text-lg font-bold text-gray-700 uppercase tracking-wider border-b border-gray-100 pb-2">Контакти</a>
+                <a href="https://forms.gle/UuWF2rPeydeK2qTQ8" target="_blank" onclick="closeMobileMenu()" class="text-lg font-bold text-brand-red uppercase tracking-wider flex items-center gap-2">
+                    Поръчай <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
             </div>
         </div>
     </nav>
@@ -147,29 +116,28 @@
         
         <!-- PAGE: HOME -->
         <section id="page-home" class="page-section hidden fade-in">
-            <header class="relative py-20 lg:py-28 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+            <header class="relative py-16 lg:py-28 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
                 <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-                    <h1 class="text-5xl md:text-7xl font-serif font-bold text-brand-brown mb-12 leading-tight">
+                    <h1 class="text-4xl md:text-7xl font-serif font-bold text-brand-brown mb-8 md:mb-12 leading-tight">
                         <span class="block text-brand-red mb-2">Българска</span>
                         <span class="block relative inline-block">
                             Традиция
-                            <svg class="absolute w-full h-3 -bottom-2 left-0 text-brand-gold opacity-60" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00025 6.99997C18.5002 4.50002 54.4999 1.99998 97.9997 3.49999C141.499 4.99999 182.499 7.50002 198.001 8.50002" stroke="currentColor" stroke-width="3"/></svg>
+                            <svg class="absolute w-full h-2 md:h-3 -bottom-2 left-0 text-brand-gold opacity-60" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00025 6.99997C18.5002 4.50002 54.4999 1.99998 97.9997 3.49999C141.499 4.99999 182.499 7.50002 198.001 8.50002" stroke="currentColor" stroke-width="3"/></svg>
                         </span>
                     </h1>
                     
-                    <!-- ELEGANT TEXT SECTION -->
-                    <div class="max-w-2xl mx-auto my-12 elegant-quote">
-                        <p class="text-2xl md:text-3xl text-brand-brown font-serif italic leading-relaxed">
+                    <div class="max-w-2xl mx-auto my-8 md:my-12 elegant-quote px-4">
+                        <p class="text-xl md:text-3xl text-brand-brown font-serif italic leading-relaxed">
                             Добре дошли в сайта на <span class="text-brand-red">Шарена Премяна</span>.
                         </p>
                         <div class="w-12 h-px bg-brand-brown/30 mx-auto my-4"></div>
-                        <p class="text-sm md:text-base text-gray-500 uppercase tracking-widest font-sans">
+                        <p class="text-xs md:text-base text-gray-500 uppercase tracking-widest font-sans">
                             Подарете спомен с душа. Нашите кукли с традиционни носии са перфектният подарък, който носи в себе си топлината, багрите и вековните символи на българския бит.
-                            ~Времето за изработка е около 10 дни~
+                            <br class="mt-2 block"/> ~Времето за изработка е около 10 дни~
                         </p>
                     </div>
                     
-                    <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4">
+                    <div class="mt-8 md:mt-12 flex flex-col sm:flex-row justify-center gap-4">
                         <a href="#gallery" class="px-8 py-4 bg-brand-brown text-white font-bold shadow-lg hover:bg-brand-red transition transform hover:-translate-y-1 rounded-sm uppercase tracking-wider">
                             Изберете своята кукла
                         </a>
@@ -182,22 +150,25 @@
             </header>
 
             <!-- Featured Preview -->
-            <div class="bg-white py-16">
+            <div class="bg-white py-12 md:py-16">
                 <div class="max-w-7xl mx-auto px-4 text-center">
-                    <h2 class="text-3xl font-serif font-bold text-brand-brown mb-8">Избрано за вас</h2>
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-brand-brown mb-8">Избрано за вас</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Photo 1 -->
                         <div class="aspect-square bg-gray-100 rounded overflow-hidden relative group cursor-pointer" onclick="window.location.hash='gallery'">
                             <img src="kukla_shopska_nosiq.png" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                 <span class="text-white font-bold uppercase tracking-widest border border-white px-4 py-2">Виж всички</span>
                             </div>
                         </div>
+                        <!-- Photo 2 -->
                         <div class="aspect-square bg-gray-100 rounded overflow-hidden relative group cursor-pointer" onclick="window.location.hash='gallery'">
                             <img src="kukla_trakiiska_nosiq_1.png" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                 <span class="text-white font-bold uppercase tracking-widest border border-white px-4 py-2">Виж всички</span>
                             </div>
                         </div>
+                        <!-- Photo 3 -->
                         <div class="aspect-square bg-gray-100 rounded overflow-hidden relative group cursor-pointer" onclick="window.location.hash='gallery'">
                             <img src="kukla_severnqshka_nosiq.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
@@ -212,21 +183,21 @@
         <!-- PAGE: ABOUT -->
         <section id="page-about" class="page-section hidden fade-in py-12 md:py-20 bg-white min-h-[60vh]">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
                     <div class="relative">
                         <div class="aspect-[3/4] bg-gray-200 rounded-lg overflow-hidden shadow-xl">
                             <img src="about_me.jpg" alt="Магдалина Николаева" class="w-full h-full object-cover">
                         </div>
-                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-gold/20 rounded-full z-[-1]"></div>
-                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-brand-red/10 rounded-full z-[-1]"></div>
+                        <div class="hidden md:block absolute -bottom-6 -right-6 w-32 h-32 bg-brand-gold/20 rounded-full z-[-1]"></div>
+                        <div class="hidden md:block absolute -top-6 -left-6 w-32 h-32 bg-brand-red/10 rounded-full z-[-1]"></div>
                     </div>
                     <div>
-                        <h2 class="text-4xl font-serif font-bold text-brand-brown mb-6">За Мен</h2>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-brown mb-6">За Мен</h2>
                         <div class="w-16 h-1 bg-brand-red mb-8"></div>
-                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
                             Здравейте, казвам се Магдалина Николаева! Създадох „Шарена Премяна“ с много любов към българския фолклор и традиции. Всяка кукла е ръчно изработена с внимание към най-малкия детайл – от шевиците до накитите.
                         </p>
-                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-6">
                             Моята мисия е да запазя красотата на българската носия и да я предам във вашите домове като скъп спомен или уникален подарък.
                         </p>
                         <div class="p-6 bg-bg-cream border-l-4 border-brand-red">
@@ -240,33 +211,32 @@
         <!-- PAGE: GALLERY -->
         <section id="page-gallery" class="page-section hidden fade-in py-12 md:py-24 bg-bg-cream min-h-[60vh]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-serif font-bold text-brand-brown">Колекция Кукли</h2>
-                    <p class="mt-4 text-gray-500 uppercase tracking-widest text-sm">Ръчна изработка • Уникални модели</p>
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-brown">Колекция Кукли</h2>
+                    <p class="mt-4 text-gray-500 uppercase tracking-widest text-xs md:text-sm">Ръчна изработка • Уникални модели</p>
                 </div>
 
-                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                     <!-- Products injected via JS -->
                 </div>
             </div>
         </section>
 
-        <!-- PAGE: CONTACTS (Updated: Order section removed) -->
+        <!-- PAGE: CONTACTS -->
         <section id="page-contacts" class="page-section hidden fade-in min-h-[60vh] flex items-center bg-brand-brown relative overflow-hidden">
-            <!-- Decorative BG Elements -->
             <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-red/20 rounded-full translate-x-1/3 translate-y-1/3"></div>
 
             <div class="max-w-3xl mx-auto px-4 py-16 relative z-10 w-full text-center">
-                <h2 class="text-4xl font-serif font-bold text-white mb-2">Контакти</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-2">Контакти</h2>
                 <div class="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
                 
-                <p class="text-white/90 text-xl mb-12 leading-relaxed font-light">
-                    Имате въпроси или искате да обсъдим индивидуална поръчка? <br/>
+                <p class="text-white/90 text-lg md:text-xl mb-12 leading-relaxed font-light">
+                    Имате въпроси или искате да обсъдим индивидуална поръчка? <br class="hidden md:block"/>
                     Свържете се с нас, ще се радваме да помогнем.
                 </p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white max-w-2xl mx-auto mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-white max-w-2xl mx-auto mb-16">
                     <div class="flex flex-col items-center p-6 bg-white/10 rounded-lg backdrop-blur-sm hover:bg-white/20 transition">
                         <div class="w-12 h-12 bg-brand-red rounded-full flex items-center justify-center mb-4 shadow-lg">
                             <i data-lucide="phone" class="w-6 h-6 text-white"></i>
@@ -291,7 +261,7 @@
                             <i data-lucide="instagram" class="w-6 h-6 group-hover:scale-110 transition"></i> 
                             <span class="hidden sm:inline">Instagram</span>
                         </a>
-                        <a href="https://www.facebook.com/profile.php?id=61583263174209" class="text-white hover:text-brand-gold transition flex items-center gap-2 group">
+                        <a href="https://www.facebook.com/profile.php?id=61583263174209" target="_blank" class="text-white hover:text-brand-gold transition flex items-center gap-2 group">
                             <i data-lucide="facebook" class="w-6 h-6 group-hover:scale-110 transition"></i> 
                             <span class="hidden sm:inline">Facebook</span>
                         </a>
@@ -323,14 +293,13 @@
                             <img id="modal-image" src="" alt="Doll Detail" class="absolute inset-0 w-full h-full object-cover">
                         </div>
                         <div class="px-8 py-10 md:p-12 flex flex-col justify-center">
-                            <h3 class="text-3xl font-serif font-bold text-brand-brown mb-2" id="modal-title">Title</h3>
+                            <h3 class="text-2xl md:text-3xl font-serif font-bold text-brand-brown mb-2" id="modal-title">Title</h3>
                             <p class="text-brand-red font-serif text-2xl mb-6 italic" id="modal-price">Price</p>
                             <div class="prose prose-sm text-gray-600 mb-8">
                                 <p id="modal-description" class="leading-relaxed text-lg font-light">Desc</p>
                             </div>
                             <div class="mt-auto">
-                                <!-- Updated modal button to point directly to Google Forms -->
-                                <a href="https://docs.google.com/forms" target="_blank" class="w-full inline-flex justify-center items-center px-6 py-4 bg-brand-brown text-white font-bold uppercase tracking-wider text-sm rounded shadow hover:bg-brand-red transition duration-300">
+                                <a href="https://forms.gle/UuWF2rPeydeK2qTQ8" target="_blank" class="w-full inline-flex justify-center items-center px-6 py-4 bg-brand-brown text-white font-bold uppercase tracking-wider text-sm rounded shadow hover:bg-brand-red transition duration-300">
                                     Поръчай тази кукла
                                 </a>
                             </div>
@@ -344,8 +313,18 @@
     <script>
         lucide.createIcons();
 
+        // --- MOBILE MENU TOGGLE ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
         // --- PAGE ROUTING LOGIC ---
         function showPage(pageId) {
+            closeMobileMenu();
             document.querySelectorAll('.page-section').forEach(page => {
                 page.classList.add('hidden');
             });
@@ -464,12 +443,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
