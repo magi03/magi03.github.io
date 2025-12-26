@@ -53,6 +53,16 @@
 
         .elegant-quote { position: relative; border-top: 1px solid #d4a373; border-bottom: 1px solid #d4a373; padding: 2rem 0; }
         .elegant-quote::before { content: '❦'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #f9f7f2; padding: 0 15px; color: #d4a373; font-size: 1.5rem; }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="bg-bg-cream text-brand-brown font-sans antialiased flex flex-col min-h-screen">
@@ -149,33 +159,31 @@
                 </div>
             </header>
 
-            <!-- Featured Preview -->
+            <!-- SLIDER SECTION -->
             <div class="bg-white py-12 md:py-16">
-                <div class="max-w-7xl mx-auto px-4 text-center">
-                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-brand-brown mb-8">Избрано за вас</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- Photo 1 -->
-                        <div class="aspect-square bg-gray-100 rounded overflow-hidden relative group cursor-pointer" onclick="window.location.hash='gallery'">
-                            <img src="kukla_shopska_nosiq.png" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                                <span class="text-white font-bold uppercase tracking-widest border border-white px-4 py-2">Виж всички</span>
-                            </div>
-                        </div>
-                        <!-- Photo 2 -->
-                        <div class="aspect-square bg-gray-100 rounded overflow-hidden relative group cursor-pointer" onclick="window.location.hash='gallery'">
-                            <img src="kukla_trakiiska_nosiq_1.png" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                                <span class="text-white font-bold uppercase tracking-widest border border-white px-4 py-2">Виж всички</span>
-                            </div>
-                        </div>
-                        <!-- Photo 3 -->
-                        <div class="aspect-square bg-gray-100 rounded overflow-hidden relative group cursor-pointer" onclick="window.location.hash='gallery'">
-                            <img src="kukla_severnqshka_nosiq.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                                <span class="text-white font-bold uppercase tracking-widest border border-white px-4 py-2">Виж всички</span>
-                            </div>
-                        </div>
+                <div class="max-w-7xl mx-auto px-4 relative group">
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-brand-brown mb-8 text-center">Избрано за вас</h2>
+                    
+                    <!-- Left Arrow Button (Always Visible) -->
+                    <button id="slide-left" class="absolute left-1 md:left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-md text-brand-brown hover:bg-brand-red hover:text-white transition border border-gray-100">
+                        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                    </button>
+
+                    <!-- The Slider Container -->
+                    <div id="featured-slider" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-6 pb-8 px-2 no-scrollbar">
+                        <!-- Javascript will inject ALL dolls here automatically -->
                     </div>
+
+                    <!-- Right Arrow Button (Always Visible) -->
+                    <button id="slide-right" class="absolute right-1 md:right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full shadow-md text-brand-brown hover:bg-brand-red hover:text-white transition border border-gray-100">
+                        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                    </button>
+                    
+                    <!-- Swipe hint -->
+                    <p class="text-center text-gray-400 text-xs mt-2 italic md:hidden opacity-70">
+                        <i data-lucide="move-horizontal" class="inline w-4 h-4 align-middle mr-1"></i>
+                        Плъзнете за още
+                    </p>
                 </div>
             </div>
         </section>
@@ -311,8 +319,6 @@
     </div>
 
     <script>
-        lucide.createIcons();
-
         // --- MOBILE MENU TOGGLE ---
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
@@ -393,8 +399,8 @@
             }
         ];
 
+        // --- RENDER GALLERY GRID ---
         const grid = document.getElementById('product-grid');
-
         products.forEach(product => {
             const card = document.createElement('div');
             card.className = 'doll-card bg-white rounded-sm shadow-sm overflow-hidden group cursor-pointer';
@@ -418,6 +424,43 @@
             grid.appendChild(card);
         });
 
+        // --- RENDER HOME SLIDER ---
+        const slider = document.getElementById('featured-slider');
+        products.forEach(product => {
+            const slide = document.createElement('div');
+            slide.className = 'flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/4 snap-center bg-gray-50 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition group/slide';
+            slide.onclick = () => { window.location.hash = 'gallery'; }; // Go to gallery on click
+
+            slide.innerHTML = `
+                <div class="aspect-square relative overflow-hidden">
+                    <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover transition duration-500 group-hover/slide:scale-110">
+                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover/slide:opacity-100 transition">
+                         <span class="text-white font-bold uppercase tracking-widest border border-white px-4 py-2">Виж всички</span>
+                    </div>
+                </div>
+                <div class="p-4 text-center">
+                     <h4 class="font-bold text-brand-brown text-sm">${product.title}</h4>
+                     <p class="text-brand-red text-xs mt-1 font-bold">${product.price}</p>
+                </div>
+            `;
+            slider.appendChild(slide);
+        });
+
+        // Slider Navigation Logic
+        const leftBtn = document.getElementById('slide-left');
+        const rightBtn = document.getElementById('slide-right');
+        
+        if(leftBtn && rightBtn && slider) {
+            leftBtn.onclick = () => {
+                slider.scrollLeft -= slider.offsetWidth / 2;
+            };
+            rightBtn.onclick = () => {
+                slider.scrollLeft += slider.offsetWidth / 2;
+            };
+        }
+
+
+        // --- MODAL LOGIC ---
         const modal = document.getElementById('product-modal');
         const body = document.body;
 
@@ -441,6 +484,9 @@
                 closeModal();
             }
         });
+
+        // Initialize Icons AFTER dynamic content is added
+        lucide.createIcons();
     </script>
 </body>
 </html>
