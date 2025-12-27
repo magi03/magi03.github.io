@@ -432,7 +432,7 @@
             slide.onclick = () => { window.location.hash = 'gallery'; }; // Go to gallery on click
 
             slide.innerHTML = `
-                <div class="aspect-square relative overflow-hidden">
+                <div class="aspect-[3/4] relative overflow-hidden">
                     <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover transition duration-500 group-hover/slide:scale-110">
                     <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover/slide:opacity-100 transition">
                          <span class="text-white font-bold uppercase tracking-widest border border-white px-4 py-2">Виж всички</span>
